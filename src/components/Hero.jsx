@@ -1,70 +1,38 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { styles } from '../styles';
-import { navLinks } from '../constants';
-import { shaq, bwmap, worldmap } from '../assets';
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { styles } from "../styles";
+import { navLinks } from "../constants";
+import { elevation } from "../assets";
 
 const Hero = () => {
   return (
     <>
-      <div className="absolute top-0 left-0 z-0 h-[100vh] w-screen">
+      <div className="absolute top-0 left-0 z-10 h-[100vh] w-full">
         <img
-          src={bwmap}
-          alt="world map"
-          className="w-full h-full sm:block hidden object-cover"
-        />
-      </div>
-      <div className="absolute top-0 left-0 z-0 h-[100vh] w-screen">
-        <img
-          src={worldmap}
-          alt="world map"
-          className="w-full h-full sm:hidden block object-cover"
+          src={elevation}
+          alt="Elevation"
+          className="w-full h-full sm:block hidden object-cover max-w-full"
         />
       </div>
       <section
         className="relative flex sm:flex-row flex-col w-full h-screen mx-auto 
-        sm:bg-hero bg-hero-mobile overflow-hidden">
+        sm:bg-hero-mobile bg-hero overflow-hidden"
+      >
         <div
-          className={`absolute inset-0 sm:top-[250px] top-[150px] 
-          lg:top-[150px] xl:top-[250px] ${styles.paddingX} 
-          max-w-7xl mx-auto flex flex-row items-start
-          justify-between gap-3`}>
-          <div className="flex flex-col justify-center items-center mt-5 ml-3">
-            <div className="w-5 h-5 rounded-full bg-[#0a0a0a] sm:hidden" />
-            <div className="w-1 sm:h-80 h-40 bw-gradient sm:hidden" />
-          </div>
-
-          <div>
-            <h1
-              className={`${styles.heroHeadText} text-eerieBlack font-poppins uppercase`}>
-              Hi, I'm{' '}
-              <span
-                className="sm:text-battleGray sm:text-[90px] 
-                text-eerieBlack text-[50px] font-mova
-                font-extrabold uppercase">
-                Shaquille
-              </span>
-            </h1>
-            <p className={`${styles.heroSubText} mt-2 text-eerieBlack`}>
-              Lorem ipsum dolor sit amet. <br className="sm:block hidden" />
-              consectetur adipisicing elit deleniti, voluptas.
-            </p>
-          </div>
-          <div
-            className="w-screen flex flex-col items-start 
-            justify-center sm:-ml-[3rem] xxs:mt-4"></div>
-
-          <div></div>
+          className={`absolute inset-0  ${styles.paddingX} bottom-[15%] 
+            max-w-7xl mx-auto flex flex-col items-center justify-end gap-3 z-20`}
+        >
+          <h1 className={`${styles.heroHeadText} text-black font-gothic`}>
+            Hi, I'm Isaac Heslop
+          </h1>
+          <p className={`${styles.heroSubText} text-eerieBlack`}>
+            Software Engineer and Architect
+          </p>
         </div>
 
-        <div
-          className="absolute xs:bottom-10 bottom-32 w-full 
-          flex justify-center items-center">
+        <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center z-20">
           <a href="#about">
-            <div
-              className="w-[35px] h-[64px] rounded-3xl border-4 
-            border-french border-dim flex
-            justify-center items-start p-2">
+            <div className="flex flex-col items-center">
               <motion.div
                 animate={{
                   y: [0, 24, 0],
@@ -72,23 +40,23 @@ const Hero = () => {
                 transition={{
                   duration: 1.5,
                   repeat: Infinity,
-                  repeatType: 'loop',
+                  repeatType: "loop",
                 }}
-                className="w-3 h-3 rounded-full bg-taupe mb-1"
-              />
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                >
+                  <g>
+                    <polygon points="12 17.586 4.707 10.293 3.293 11.707 12 20.414 20.707 11.707 19.293 10.293 12 17.586" />
+                    <polygon points="20.707 5.707 19.293 4.293 12 11.586 4.707 4.293 3.293 5.707 12 14.414 20.707 5.707" />
+                  </g>
+                </svg>
+              </motion.div>
             </div>
           </a>
-        </div>
-
-        {/* Your image comes here. Feel free to remove image if you don't plan to have one.*/}
-        <div>
-          <img
-            className="absolute bottom-0 ml-[50vw] 
-            lg:ml-[75vw] md:ml-[60vw] xmd:ml-[60vw] 2xl:ml-[83vw]
-            sm:h-[90vh] md:h-[70vh] xl:h-[80vh]"
-            src={shaq}
-            alt="shaquille"
-          />
         </div>
       </section>
     </>
