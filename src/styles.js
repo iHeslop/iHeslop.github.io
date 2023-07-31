@@ -15,19 +15,19 @@ const styles = {
 
   paddingX: "sm:px-16 px-6",
   paddingY: "sm:py-16 py-6",
-  padding: "sm:px-16 px-6 sm:py-16 py-10",
+  padding: "px-16 pt-1 pb-20",
 
   heroHeadText:
-    "font-black lg:text-[35px] sm:text-[20px] xs:text-[20px] text-[20px] lg:leading-[30px] mt-2",
+    "tracking-wider font-black lg:text-[35px] sm:text-[20px] xs:text-[20px] text-[20px] lg:leading-[30px] mt-2 font-light",
   heroSubText:
-    "text-eerieBlack font-medium lg:text-[20px] sm:text-[20px] xs:text-[20px] text-[16px] lg:leading-[40px]",
+    "tracking-wider text-eerieBlack font-medium lg:text-[20px] sm:text-[20px] xs:text-[20px] text-[16px] lg:leading-[40px] font-normal",
 
   sectionHeadText:
-    "text-eerieBlack font-black md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px] font-gothic",
+    "text-eerieBlack font-black md:text-[40px] sm:text-[20px] xs:text-[20px] text-[20px] font-gothic",
   sectionHeadTextLight:
     "text-timberWolf font-black md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px] font-gothic",
   sectionSubText:
-    "sm:text-[18px] text-[16px] text-taupe uppercase tracking-wider font-semibold font-gothic",
+    "sm:text-[18px] text-[16px] text-taupe tracking-wider font-semibold font-gothic",
   sectionSubTextLight:
     "sm:text-[18px] text-[16px] text-taupe uppercase tracking-wider font-semibold font-gothic",
 };

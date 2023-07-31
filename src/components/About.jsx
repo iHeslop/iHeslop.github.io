@@ -17,7 +17,7 @@ const ServiceCard = ({ index, title, icon }) => {
           scale: 1,
           speed: 450,
         }}
-        className="bg-jetLight rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
+        className="bg-jetLight rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col hover:scale-105"
       >
         <img src={icon} alt={title} className="w-16 h-16 object-contain" />
         <h3 className="text-taupe text-[18px] font-bold text-center">
@@ -30,22 +30,25 @@ const ServiceCard = ({ index, title, icon }) => {
 
 const About = () => {
   return (
-    <div className="-mt-[6rem]">
+    <div className="-mt-[8rem]">
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
+        <p className={styles.sectionSubText}>introduction.</p>
+        <h2 className={styles.sectionHeadText}>Professional Summary.</h2>
       </motion.div>
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]"
       >
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis
-        sapiente ipsum dolorum dicta eaque cumque inventore molestias, beatae ea
-        quaerat alias accusamus voluptas autem! Alias odit voluptates in totam
-        vitae dignissimos minus eaque culpa unde tempore dolore aperiam
-        obcaecati voluptatum aliquam corrupti, suscipit accusamus! Odit unde
-        veniam dolorum ipsum doloribus.
+        I am a graduate of the UTS industry accredited Certificate in Software
+        Engineering, which involved learning and understanding practical
+        software engineering and programming skills. I am also a Graduate of a
+        Bachelor of Design in Architecture from the University of Sydney with 5+
+        years of experience in the industry. I am looking to begin my career in
+        Software Engineering using a creative design process to design and
+        implement software. Some of the key workplace skills i can bring to an
+        organisation include problem-solving, attention to detail, interpersonal
+        skills and an efficient approach to process and design.
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10">

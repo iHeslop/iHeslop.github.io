@@ -51,6 +51,27 @@
   width: 70%;
 }
 
+.img-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.img-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 25%;
+  left: 40%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: #292929;
+  transition: width 0.5s;
+}
+
+.img-wrapper:hover::after {
+  width: 70%;
+}
+
 #about {
   margin-left: -24px;
   font-size: 100px;

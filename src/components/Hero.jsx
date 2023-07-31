@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { elevation } from "../assets";
+import { TypeAnimation } from "react-type-animation";
 
 const Hero = () => {
   return (
@@ -22,12 +23,20 @@ const Hero = () => {
           className={`absolute inset-0  ${styles.paddingX} bottom-[15%] 
             max-w-7xl mx-auto flex flex-col items-center justify-end gap-3 z-20`}
         >
-          <h1 className={`${styles.heroHeadText} text-black font-gothic`}>
-            Hi, I'm Isaac Heslop
-          </h1>
-          <p className={`${styles.heroSubText} text-eerieBlack`}>
-            Software Engineer and Architect
-          </p>
+          <TypeAnimation
+            sequence={["Isaac Heslop"]}
+            wrapper="h1"
+            className={`${styles.heroHeadText} text-black font-gothic`}
+            speed={50}
+            repeat={0}
+          />
+          <TypeAnimation
+            sequence={["", 4000, "software engineer and architect.", 3000]}
+            wrapper="p"
+            className={`${styles.heroSubText} text-eerieBlack`}
+            speed={50}
+            repeat={0}
+          />
         </div>
 
         <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center z-20">
@@ -45,8 +54,8 @@ const Hero = () => {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="40"
-                  height="40"
+                  width="35"
+                  height="35"
                   viewBox="0 0 24 24"
                 >
                   <g>
