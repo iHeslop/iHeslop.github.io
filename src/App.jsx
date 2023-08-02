@@ -1,4 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
+import { useState, useEffect } from "react";
 import {
   About,
   Contact,
@@ -7,11 +8,27 @@ import {
   Navbar,
   Tech,
   Projects,
+  LoadingScreen,
 } from "./components";
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
+
+  /*   useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 7000);
+  }, []); */
+
+  if (loading) {
+    return <LoadingScreen />;
+  }
+
   return (
     <BrowserRouter>
+      {/*  {loading ? (
+        <LoadingScreen />
+      ) : ( */}
       <div className="relative z-0">
         <div>
           <Navbar />
@@ -43,6 +60,7 @@ const App = () => {
           <Contact />
         </div>
       </div>
+      {/* )} */}
     </BrowserRouter>
   );
 };

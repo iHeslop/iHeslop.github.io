@@ -1,18 +1,30 @@
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { elevation } from "../assets";
 import { TypeAnimation } from "react-type-animation";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
+  const [imageVisible, setImageVisible] = useState(false);
+  const controls = useAnimation();
+
+  useEffect(() => {
+    setImageVisible(true);
+  }, []);
   return (
     <>
       <div className="absolute top-0 left-0 z-10 h-[100vh] w-full">
-        <img
+        <motion.img
           src={elevation}
           alt="Elevation"
-          className="w-full h-full sm:block hidden object-cover max-w-full"
+          className={`w-full h-full sm:block hidden object-cover max-w-full ${
+            imageVisible ? "opacity-100" : "opacity-0"
+          }`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: imageVisible ? 1 : 0 }}
+          transition={{ duration: 8 }}
         />
       </div>
       <section
@@ -24,14 +36,14 @@ const Hero = () => {
             max-w-7xl mx-auto flex flex-col items-center justify-end gap-3 z-20`}
         >
           <TypeAnimation
-            sequence={["Isaac Heslop"]}
+            sequence={["", 5000, "Isaac Heslop", 3000]}
             wrapper="h1"
             className={`${styles.heroHeadText} text-black font-gothic`}
-            speed={50}
+            speed={25}
             repeat={0}
           />
           <TypeAnimation
-            sequence={["", 4000, "software engineer and architect.", 3000]}
+            sequence={["", 7000, "software engineer and architect.", 3000]}
             wrapper="p"
             className={`${styles.heroSubText} text-eerieBlack`}
             speed={50}
