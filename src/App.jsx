@@ -1,24 +1,23 @@
-import { BrowserRouter } from "react-router-dom";
-import { useState, useEffect } from "react";
-import {
-  About,
-  Contact,
-  Experience,
-  Hero,
-  Navbar,
-  Tech,
-  Projects,
-  LoadingScreen,
-} from "./components";
+import React, { Suspense, useEffect, useState } from "react";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import LoadingScreen from "./components/LoadingScreen";
+import LoadingAnimation from "./components/LoadingAnimation";
+
+const Home = React.lazy(() => import("./components/Home"));
+const Projects = React.lazy(() => import("./components/Projects"));
+const Experience = React.lazy(() => import("./components/Experience"));
+const Contact = React.lazy(() => import("./components/Contact"));
+const ContentWrapper = React.lazy(() => import("./components/ContentWrapper"));
 
 const App = () => {
   const [loading, setLoading] = useState(true);
 
-  /*   useEffect(() => {
-    setTimeout(() => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
       setLoading(false);
-    }, 7000);
-  }, []); */
+    }, 8000);
+    return () => clearTimeout(timer);
+  }, []);
 
   if (loading) {
     return <LoadingScreen />;
@@ -26,41 +25,16 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      {/*  {loading ? (
-        <LoadingScreen />
-      ) : ( */}
-      <div className="relative z-0">
-        <div>
-          <Navbar />
-          <Hero />
-        </div>
-
-        <div className="bg-white bg-cover bg-center bg-no-repeat">
-          <About />
-        </div>
-
-        <div className="bg-tech bg-cover bg-center bg-no-repeat pb-10">
-          <Tech />
-        </div>
-
-        <Projects />
-
-        <div
-          className="bg-experience bg-cover bg-center bg-no-repeat 
-            rounded-tl-[150px] rounded-br-[150px]"
-        >
-          <div
-            className="bg-experienceLight bg-cover bg-center 
-            bg-no-repeat rounded-tl-[150px] rounded-br-[130px]"
-          >
-            <Experience />
-          </div>
-        </div>
-        <div className="relative z-0">
-          <Contact />
-        </div>
-      </div>
-      {/* )} */}
+      <ContentWrapper>
+        <Suspense fallback={<LoadingAnimation />}>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/projects" element={<Projects />} />
+            <Route exact path="/experience" element={<Experience />} />
+            <Route exact path="/contact" element={<Contact />} />
+          </Routes>
+        </Suspense>
+      </ContentWrapper>
     </BrowserRouter>
   );
 };

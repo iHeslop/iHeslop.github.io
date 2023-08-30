@@ -1,15 +1,6 @@
 import elevation from "./backgrounds/bpst-elevation.png";
-import nairobi from "./backgrounds/nairobi.png";
-import whiteabstract from "./backgrounds/white-abstract.png";
-import worldmap from "./backgrounds/world-map.png";
-
 import logo from "./logo/logo-black.png";
-import logotext from "./logo/logo-text-black.png";
 
-import backend from "./icons/backend.png";
-import ux from "./icons/ux.png";
-import frontend from "./icons/frontend.png";
-import prototyping from "./icons/prototyping.png";
 import github from "./icons/github.png";
 import close from "./icons/close.png";
 import download from "./icons/download.png";
@@ -29,12 +20,8 @@ import html from "./tech/html.png";
 import javascript from "./tech/javascript.png";
 import nodejs from "./tech/nodejs.png";
 import reactjs from "./tech/reactjs.png";
-import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
-import graphql from "./tech/graphql.png";
-import postgresql from "./tech/postgresql.png";
-import rubyrails from "./tech/rubyrails.png";
 
 import coverhunt from "./company/coverhunt.png";
 import dcc from "./company/dcc.png";
@@ -50,15 +37,7 @@ import space from "./projects/space-hub.png";
 
 export {
   elevation,
-  nairobi,
-  whiteabstract,
-  worldmap,
   logo,
-  logotext,
-  backend,
-  ux,
-  frontend,
-  prototyping,
   github,
   close,
   download,
@@ -73,14 +52,10 @@ export {
   docker,
   figma,
   git,
-  graphql,
   html,
   javascript,
   nodejs,
-  postgresql,
-  rubyrails,
   reactjs,
-  redux,
   tailwind,
   typescript,
   komikult,

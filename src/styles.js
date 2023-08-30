@@ -13,23 +13,23 @@ const styles = {
   flexEnd: "flex justify-end",
   navPadding: "pt-[98px]",
 
-  paddingX: "sm:px-16 px-6",
+  paddingX: "sm:px-8 px-6 sm:py-6 py-4",
   paddingY: "sm:py-16 py-6",
   padding: "px-16 pt-1 pb-20",
 
   heroHeadText:
-    "tracking-wider font-black lg:text-[35px] sm:text-[20px] xs:text-[20px] text-[20px] lg:leading-[30px] mt-2 font-light",
+    "tracking-wider lg:text-[45px] sm:text-[20px] text-[30px] lg:leading-[30px] font-NeueLight",
   heroSubText:
-    "tracking-wider text-eerieBlack font-medium lg:text-[20px] sm:text-[20px] xs:text-[20px] text-[16px] lg:leading-[40px] font-normal",
+    "tracking-widest text-eerieBlack font-medium sm:text-[16px] text-[12px] lg:leading-[40px] font-NeueLight",
 
   sectionHeadText:
-    "text-eerieBlack font-black md:text-[40px] sm:text-[20px] xs:text-[20px] text-[20px] font-gothic",
+    "md:text-[18px] sm:text-[20px] xs:text-[20px] text-[20px] font-NeueRegular tracking-wdier",
   sectionHeadTextLight:
-    "text-timberWolf font-black md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px] font-gothic",
+    "text-timberWolf font-black md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px] font-NeueLight",
   sectionSubText:
-    "sm:text-[18px] text-[16px] text-taupe tracking-wider font-semibold font-gothic",
+    "sm:text-[14px] text-[14px]  tracking-widest font-NeueRegular lg:leading-[1.5rem]",
   sectionSubTextLight:
-    "sm:text-[18px] text-[16px] text-taupe uppercase tracking-wider font-semibold font-gothic",
+    "tracking-widest text-eerieBlack font-medium sm:text-[16px] text-[12px] lg:leading-[22px] font-neuelight",
 };
 
 export { styles };

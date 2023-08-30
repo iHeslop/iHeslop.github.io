@@ -1,23 +1,22 @@
 import React from "react";
-import { Puff } from "react-loading-icons";
 import { TypeAnimation } from "react-type-animation";
 import { styles } from "../styles";
-import { logo } from "../assets";
+import FadeIn from "react-fade-in/lib/FadeIn";
 
 const LoadingScreen = () => {
   return (
-    <div className="loading-screen bg-white flex flex-col justify-center items-center h-screen w-screen fixed top-0 left-0">
-      <Puff
-        stroke="#000000"
-        strokeOpacity={0.25}
-        speed={1}
-        className="absolute"
-      />
-      <img
-        src={logo}
-        alt="logo"
-        className="w-[60px] h-[40px] object-contain absolute bottom-10"
-      />
+    <div className="fixed inset-0 flex items-center justify-center">
+      <FadeIn transitionDuration={800}>
+        <div className="loading-screen bg-white flex justify-center items-center h-full w-full">
+          <TypeAnimation
+            sequence={["", 2000, "Isaac Heslop.", 2000, "Portfolio.", 2000]}
+            wrapper="p"
+            className={`${styles.heroSubText} text-french`}
+            speed={50}
+            repeat={0}
+          />
+        </div>
+      </FadeIn>
     </div>
   );
 };

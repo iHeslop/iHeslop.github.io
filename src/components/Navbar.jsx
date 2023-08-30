@@ -1,103 +1,105 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { styles } from "../styles";
-import { navLinks } from "../constants";
-import { close, menu, logo, logotext } from "../assets";
+import { TypeAnimation } from "react-type-animation";
+import { close, menu } from "../assets";
 
-const Navbar = () => {
-  const [active, setActive] = useState("");
+const Navbar = (props) => {
   const [toggle, setToggle] = useState(false);
+
+  const activeLink = (path) => {
+    return location.pathname === path
+      ? "active-navlink"
+      : "text-eerieBlack hover:text-french nav-links cursor-pointer";
+  };
 
   return (
     <nav
-      className={`${styles.paddingX} w-full flex items-center py-2 fixed 
-      top-0 z-30 bg-white sm:opacity-[0.97] xxs:h-[12vh]`}
+      className={`${styles.paddingX} absolute flex
+      z-30 sm:opacity-[0.97] xxs:h-[12vh] fade-in-animation`}
     >
-      <div className="w-full flex justify-between items-center max-w-7xl mx-auto ">
-        <Link
-          to="/"
-          className="flex items-center gap-2"
-          onClick={() => {
-            setActive("");
-            window.scrollTo(0, 0);
-          }}
-        >
-          <img
-            src={logo}
-            alt="logo"
-            className="w-[60px] h-[40px] object-contain"
-          />
-          <div className="img-wrapper">
-            <img
-              src={logotext}
-              alt="logo"
-              className="w-[120px] h-[75px] -ml-[0.6rem] object-contain img-links"
-            />
-          </div>
-        </Link>
-        <ul className="list-none hidden sm:flex flex-row gap-14 mt-2">
-          {navLinks.map((nav) => (
-            <li
-              key={nav.id}
-              className={`${
-                active === nav.title ? "text-french" : "text-eerieBlack"
-              } hover:text-taupe text-[20px] font-gothic 
-                tracking-wider cursor-pointer nav-links`}
-              onClick={() => setActive(nav.title)}
-            >
-              <a href={`#${nav.id}`}>{nav.title}</a>
-            </li>
-          ))}
-        </ul>
+      <div className="w-full flex justify-between items-center max-w-7xl">
+        <ul className="list-none flex flex-col gap-3 sm:mt-2">
+          <li className="text-eerieBlack font-neuelight tracking-wider -mb-1">
+            <h1 className={`${styles.heroHeadText} text-black`}>
+              Isaac Heslop
+            </h1>
+          </li>
 
-        {/* mobile */}
-        <div className="sm:hidden flex flex-1 w-screen justify-end items-center">
-          {toggle ? (
-            <div
-              className={`p-6 bg-flashWhite opacity-[0.98] absolute 
-                top-0 left-0 w-screen h-[100vh] z-10 menu ${
-                  toggle ? "menu-open" : "menu-close"
-                }`}
-            >
-              <div className="flex justify-end">
-                <img
-                  src={close}
-                  alt="close"
-                  className="w-[22px] h-[22px] object-contain cursor-pointer"
-                  onClick={() => setToggle(!toggle)}
-                />
-              </div>
-              <ul
-                className="list-none flex flex-col -gap-[1rem] 
-                items-start justify-end mt-[10rem] -ml-[35px]"
-              >
-                {navLinks.map((nav) => (
-                  <li
-                    id={nav.id}
-                    key={nav.id}
-                    className={`${
-                      active === nav.title ? "text-french" : "text-eerieBlack"
-                    } text-[88px] font-bold font-arenq 
-                      uppercase tracking-[1px] cursor-pointer`}
-                    onClick={() => {
-                      setToggle(!toggle);
-                      setActive(nav.title);
-                    }}
-                  >
-                    <a href={`#${nav.id}`}>{nav.title}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : (
-            <img
-              src={menu}
-              alt="menu"
-              className="w-[34px] h-[34px] object-contain cursor-pointer"
-              onClick={() => setToggle(!toggle)}
+          <li className="text-eerieBlack font-neuelight">
+            <TypeAnimation
+              sequence={["", 3000, "software engineer and architect.", 3000]}
+              wrapper="p"
+              className={`${styles.heroSubText}`}
+              speed={50}
+              repeat={0}
             />
-          )}
-        </div>
+          </li>
+
+          <li
+            className={
+              "text-[12px] sm:text-[14px] font-neueregular tracking-widest"
+            }
+          >
+            <NavLink
+              to={"/"}
+              className={activeLink("/")}
+              onClick={() => {
+                props.generateRandomColour();
+              }}
+            >
+              home.
+            </NavLink>
+          </li>
+
+          <li
+            className={
+              "text-[12px] sm:text-[14px] font-neueregular tracking-widest"
+            }
+          >
+            <NavLink
+              to={"/projects"}
+              className={activeLink("/projects")}
+              onClick={() => {
+                props.generateRandomColour();
+              }}
+            >
+              projects.
+            </NavLink>
+          </li>
+
+          <li
+            className={
+              "text-[12px] sm:text-[14px] font-neueregular tracking-widest"
+            }
+          >
+            <NavLink
+              to={"/experience"}
+              className={activeLink("/experience")}
+              onClick={() => {
+                props.generateRandomColour();
+              }}
+            >
+              experience.
+            </NavLink>
+          </li>
+
+          <li
+            className={
+              "text-[12px] sm:text-[14px] font-neueregular tracking-widest"
+            }
+          >
+            <NavLink
+              to={"/contact"}
+              className={activeLink("/contact")}
+              onClick={() => {
+                props.generateRandomColour();
+              }}
+            >
+              contact.
+            </NavLink>
+          </li>
+        </ul>
       </div>
     </nav>
   );
